@@ -1,0 +1,4 @@
+javac constantes/*.java processo/*.java estruturas/*.java entidades/*.java
+
+java entidades.ServidorUDP
+java entidades.ClienteUDP modoCliente1 modoCliente2
