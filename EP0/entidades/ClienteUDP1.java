@@ -13,7 +13,7 @@ public class ClienteUDP1 {
 	//Modo 5 = Aleatório
 
 	public static void main(String args[]) {
-		ClienteEnvio cliente = new ClienteEnvio(0, Musicas.LIVING_ON_A_PRAYER, args[0]);
+		ClienteEnvio cliente = new ClienteEnvio(1, Musicas.LIVING_ON_A_PRAYER, args.length < 1 ? "1" : args[0]);
 		cliente.comecar();
 	}
 

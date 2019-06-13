@@ -8,7 +8,7 @@ import java.net.*;
 
 public class ServidorUDP {
 	public static void main(String args[]) throws Exception {
-		ClienteBuffer clientes[] = new ClienteBuffer[2];
+		ClienteBuffer clientes[] = new ClienteBuffer[10];
 
 		DatagramSocket serverSocket = new DatagramSocket(9876);
 
@@ -31,11 +31,11 @@ public class ServidorUDP {
 			if(clientes[idCliente] == null) {
                 clientes[idCliente] = new ClienteBuffer(1000, idCliente);
                 clientes[idCliente].start();
-
 			}
-
+			
 			clientes[idCliente].adicionaBuffer(mensagem, numeroSequencia);
-
+		
+			
 			String dadosPacote = "IP: "+IPAddress.getHostAddress()+
 					" SequenceNumber: " + numeroSequencia +
 					" ClientID: " + idCliente +

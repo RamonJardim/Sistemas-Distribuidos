@@ -18,9 +18,13 @@ public class ClienteBuffer extends Thread {
 
     @Override
     public void run(){
-        int ultimoIndice = -1;
+		consumir();
+    }
+	
+	public void consumir(){
+		int ultimoIndice = -1;
         long fim;
-        int timeoutMS = 500;
+        int timeoutMS = 1000;
 
         try(FileWriter fw = new FileWriter("Musica - Cliente " + idCliente + ".txt")) {
             for (int timeouts = 0 ; timeouts < 5 ; timeouts ++) {
@@ -34,14 +38,15 @@ public class ClienteBuffer extends Thread {
                         timeouts = 0;
                     }
                 }
-                fw.write("##VERSO PERDIDO##\n");
+				System.out.println("##MENSAGEM PERDIDA##\n");
+                fw.write("##MENSAGEM PERDIDA##\n");
                 ultimoIndice++;
             }
-            System.out.println("Finalizou com Cliente " + idCliente);
+            System.out.println("Finalizou com Cliente " + idCliente + "\n");
         } catch (Exception e) {
             System.out.println("Erro ao escrever no arquivo: " + e.getMessage());
         }
-    }
+	}
 
     public void adicionaBuffer(String mensagem, int numeroSequencia){
         if(buffer[numeroSequencia] == null) {
