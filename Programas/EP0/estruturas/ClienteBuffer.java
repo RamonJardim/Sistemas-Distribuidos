@@ -22,7 +22,7 @@ public class ClienteBuffer extends Thread {
     }
 	
 	public void consumir(){
-		int ultimoIndice = -1;
+		int indiceBuffer = -1;
         long fim;
         int timeoutMS = 1000;
 
@@ -30,17 +30,17 @@ public class ClienteBuffer extends Thread {
             for (int timeouts = 0 ; timeouts < 5 ; timeouts ++) {
                 fim =  System.currentTimeMillis() + timeoutMS;
                 while (System.currentTimeMillis() < fim) {
-                    if (buffer[ultimoIndice + 1] != null) {
-                        fw.write(buffer[++ultimoIndice]);
+                    if (buffer[indiceBuffer + 1] != null) {
+                        fw.write(buffer[++indiceBuffer]);
 
-                        System.out.println("Consumiu: " + buffer[ultimoIndice]);
+                        System.out.println("Consumiu: " + buffer[indiceBuffer]);
                         fim = System.currentTimeMillis() + timeoutMS;
                         timeouts = 0;
                     }
                 }
 				System.out.println("##MENSAGEM PERDIDA##\n");
                 fw.write("##MENSAGEM PERDIDA##\n");
-                ultimoIndice++;
+                indiceBuffer++;
             }
             System.out.println("Finalizou com Cliente " + idCliente + "\n");
         } catch (Exception e) {

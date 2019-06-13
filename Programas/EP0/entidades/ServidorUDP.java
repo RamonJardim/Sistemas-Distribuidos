@@ -30,6 +30,7 @@ public class ServidorUDP {
 
 			if(clientes[idCliente] == null) {
                 clientes[idCliente] = new ClienteBuffer(1000, idCliente);
+                clientes[idCliente].setPriority(10);
                 clientes[idCliente].start();
 			}
 			
