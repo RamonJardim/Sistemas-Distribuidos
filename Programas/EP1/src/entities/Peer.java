@@ -8,8 +8,6 @@ public class Peer {
         String peerName = "X";
 
         MetadataReader T1 = new MetadataReader(peerName);
-        System.out.println("Nome: ");
-
-
+        T1.start();
     }
 }
