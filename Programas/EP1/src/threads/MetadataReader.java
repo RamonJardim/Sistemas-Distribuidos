@@ -13,11 +13,9 @@ import java.util.List;
 import java.util.Date;
 
 public class MetadataReader extends Thread { // Este representa T1
-    private String peerName;
     private DAO dao;
 
-    public MetadataReader(String peerName){
-        this.peerName = peerName;
+    public MetadataReader(){
         this.dao = DAO.getDAO();
     }
 
@@ -35,20 +33,26 @@ public class MetadataReader extends Thread { // Este representa T1
 
     private void updateMetadata(){
         try {
-            File folder = new File("../files");
+            File folder = new File("./Programas/EP1/files");
+            //File folder = new File("????files");
             File[] filesList = folder.listFiles();
             BasicFileAttributes attributes;
             List<Metadata> myFilesList = new ArrayList<Metadata>();
+            String files = "";
 
-
-            assert filesList != null;
             for (File file : filesList) {
                 attributes = Files.readAttributes(file.toPath(), BasicFileAttributes.class);
                 if (file.isFile()) {
                     myFilesList.add(new Metadata(file.getName(), new Date(attributes.creationTime().toMillis()), new Date(attributes.lastModifiedTime().toMillis()), attributes.size(), getExtension(file)));
                 }
             }
-            dao.setInternInfo(new PeerInfo(myFilesList));
+            dao.setInternInfo(myFilesList);
+
+            for(Metadata file: dao.getInternInfo().getFilesInfo()){
+                files += file.getFileName() + ", ";
+            }
+            System.out.println("Console peer X: thread T1 - " + dao.getInternInfo().getFilesCount() +
+                    " arquivo(s) obtido(s) da pasta. (" + files + ") Estado atual de X: " + dao.getInternInfo().getInfoNumber() + ".");
         } catch (IOException e) {
            System.out.println("Erro em T1: " + e.getMessage());
         }
