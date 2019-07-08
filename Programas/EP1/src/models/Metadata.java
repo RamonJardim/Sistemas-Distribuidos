@@ -1,8 +1,9 @@
 package models;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Metadata {
+public class Metadata implements Serializable {
 	private String fileName;
 	private Date creationTime;
 	private Date lastModifiedTime;
