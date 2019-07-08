@@ -71,4 +71,8 @@ public class DAO {
     public Map<String, PeerInfo> getForeignsMap() {
         return foreignersInfo;
     }
+
+    public static String getFileFolderPath(){
+        return System.getProperty("os.name").contains("Windows") ? "./files/" : "./Programas/EP1/files/";
+    }
 }

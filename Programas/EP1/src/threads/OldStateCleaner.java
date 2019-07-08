@@ -3,7 +3,6 @@ package threads;
 import data.DAO;
 import models.PeerInfo;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class OldStateCleaner extends Thread {

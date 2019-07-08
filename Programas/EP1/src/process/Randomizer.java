@@ -2,11 +2,13 @@ package process;
 
 import data.DAO;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
-public abstract class Randomize {
+public abstract class Randomizer {
     public static String getRandomPeer(String... excludes) throws Exception {
         ArrayList<String> peers = new ArrayList();
         List<String> excludesList = Arrays.asList(excludes);
@@ -25,5 +27,9 @@ public abstract class Randomize {
         } while(excludesList.contains(peer));
 
         return peer;
+    }
+
+    public static String getFileName() {
+        return BigInteger.probablePrime(50, new Random()).toString(Character.MAX_RADIX);
     }
 }

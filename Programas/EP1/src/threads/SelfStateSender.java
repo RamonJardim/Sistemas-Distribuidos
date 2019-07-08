@@ -2,9 +2,8 @@ package threads;
 
 import data.DAO;
 import data.Neighbors;
-import models.Metadata;
 import models.PeerInfo;
-import process.Randomize;
+import process.Randomizer;
 import process.Sender;
 import process.Serializer;
 
@@ -26,7 +25,7 @@ public class SelfStateSender extends Thread { // Este representa T2
 
         while (true) {
             Thread.sleep(500);
-            peerToSendName = Randomize.getRandomPeer(DAO.getPeerName());
+            peerToSendName = Randomizer.getRandomPeer(DAO.getPeerName());
             peerToSendIP = Neighbors.getPeerIP(peerToSendName);
             infoToSend = DAO.getDAO().getInternInfo();
             Sender.send(peerToSendIP, infoToSend, Neighbors.PORT);

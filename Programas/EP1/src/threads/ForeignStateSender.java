@@ -3,7 +3,7 @@ package threads;
 import data.DAO;
 import data.Neighbors;
 import models.PeerInfo;
-import process.Randomize;
+import process.Randomizer;
 import process.Sender;
 import process.Serializer;
 
@@ -29,13 +29,13 @@ public class ForeignStateSender extends Thread { // Este representa T3
             Thread.sleep(500);
 
             do {
-                infoPeerToSendName = Randomize.getRandomPeer(DAO.getPeerName());
+                infoPeerToSendName = Randomizer.getRandomPeer(DAO.getPeerName());
                 infoToSend = DAO.getDAO().getForeignInfo(infoPeerToSendName);
             } while(infoToSend == null);
 
             infoToSend.setPeerSender(DAO.getPeerName());
 
-            peerToSendName = Randomize.getRandomPeer(DAO.getPeerName(), infoPeerToSendName);
+            peerToSendName = Randomizer.getRandomPeer(DAO.getPeerName(), infoPeerToSendName);
             peerToSendIP = Neighbors.getPeerIP(peerToSendName);
 
             Sender.send(peerToSendIP, infoToSend, Neighbors.PORT);

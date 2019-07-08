@@ -36,8 +36,7 @@ public class SelfStateReader extends Thread { // Este representa T1
 
     private void updateMetadata(){
         try {
-            //File folder = new File("./Programas/EP1/files");    //UBUNTU
-            File folder = new File("./files");          //WINDOWS
+            File folder = new File(DAO.getFileFolderPath());
             File[] filesList = folder.listFiles();
             BasicFileAttributes attributes;
             List<Metadata> myFilesList = new ArrayList();
