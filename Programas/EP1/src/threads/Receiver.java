@@ -35,7 +35,7 @@ public class Receiver extends Thread {
                 InetAddress iPAddress = receivedPacket.getAddress();
                 PeerInfo receivedMetadata = (PeerInfo) (Serializer.convertFromBytes(receivedPacket.getData()));
 
-                DAO.getDAO().setForeignersInfo(receivedMetadata);
+                DAO.getDAO().insertForeignInfo(receivedMetadata);
 
                 System.out.println(String.format("Console peer %s: Recebimento do estado %d do peer %s, " +
                                 "arquivos: (%s) por gossip vindo do peer %s.", DAO.getPeerName(), receivedMetadata.getInfoNumber(),

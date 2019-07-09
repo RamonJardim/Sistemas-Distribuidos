@@ -46,7 +46,7 @@ public class DAO {
         return peerName;
     }
 
-    public void setForeignersInfo(PeerInfo peerInfo) throws InfoException {
+    public void insertForeignInfo(PeerInfo peerInfo) throws InfoException {
         if(foreignersInfo.containsKey(peerInfo.getPeerName())) {
             if (foreignersInfo.get(peerInfo.getPeerName()).compareTo(peerInfo) == 0) {
                 throw new RepeatedInfoException(peerInfo, "Informação já registrada");
@@ -58,9 +58,12 @@ public class DAO {
         }
         peerInfo.setReceiveMoment(System.currentTimeMillis());
         foreignersInfo.put(peerName, peerInfo);
+        System.out.println("Colocou peerName: " + peerInfo);
     }
 
     public PeerInfo getForeignInfo(String peerName){
+        if(foreignersInfo.containsKey(peerName))
+            System.out.println("Key esta presente");
         return foreignersInfo.getOrDefault(peerName, null);
     }
 
