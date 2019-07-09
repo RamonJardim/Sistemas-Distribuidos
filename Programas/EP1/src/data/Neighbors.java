@@ -3,7 +3,7 @@ package data;
 import java.util.HashMap;
 
 public abstract class Neighbors {
-    public static final HashMap<String, String> NEIGHBORS = new HashMap() {{
+    public static final HashMap<String, String> NEIGHBORS = new HashMap<String, String>() {{
         put("V", "54.207.88.140");
         put("W", "18.228.116.163");
         put("X", "18.228.136.201");

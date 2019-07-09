@@ -8,8 +8,6 @@ public class PeerInfo implements Serializable, Comparable<PeerInfo> {
     private List<Metadata> filesInfo;
     private long infoNumber;    // Número sequencial, quanto maior, mais novo.
     private long receiveMoment;
-
-
     private String peerSender;
 
     public PeerInfo(String peerName, long infoNumber, List<Metadata> actualFiles, String peerSender){

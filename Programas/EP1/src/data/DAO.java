@@ -21,7 +21,7 @@ public class DAO {
     }
 
     private PeerInfo internInfo;
-    private static Map<String, PeerInfo> foreignersInfo = new ConcurrentHashMap<String, PeerInfo>();
+    private Map<String, PeerInfo> foreignersInfo = new ConcurrentHashMap<String, PeerInfo>();
 
     public static DAO getDAO(){
         if(dao == null)

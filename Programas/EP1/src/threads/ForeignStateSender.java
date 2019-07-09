@@ -36,7 +36,7 @@ public class ForeignStateSender extends Thread { // Este representa T3
 
             infoToSend.setPeerSender(DAO.getPeerName());
 
-            peerToSendName = Randomizer.getRandomPeer(DAO.getPeerName(), infoPeerToSendName);
+            peerToSendName = Randomizer.getRandomPeer(DAO.getPeerName(), infoPeerToSendName, infoToSend.getPeerSender());
             peerToSendIP = Neighbors.getPeerIP(peerToSendName);
             //System.out.println("Enviar para: " + peerToSendName + " " + peerToSendIP);
 
