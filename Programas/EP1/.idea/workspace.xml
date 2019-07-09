@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e63c26ea-f7e1-4246-90ee-257aa66430e5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/data/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/threads/Receiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/Receiver.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,7 +20,7 @@
         <entry file="file://$PROJECT_DIR$/src/data/DAO.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="342">
-              <caret line="60" column="58" selection-start-line="60" selection-start-column="58" selection-end-line="60" selection-end-column="58" />
+              <caret line="60" column="53" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -600,7 +599,7 @@
     <entry file="file://$PROJECT_DIR$/src/data/DAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
-          <caret line="60" column="58" selection-start-line="60" selection-start-column="58" selection-end-line="60" selection-end-column="58" />
+          <caret line="60" column="53" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

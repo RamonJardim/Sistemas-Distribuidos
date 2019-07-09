@@ -58,10 +58,11 @@ public class DAO {
         }
         peerInfo.setReceiveMoment(System.currentTimeMillis());
         foreignersInfo.put(peerName, peerInfo);
-        System.out.println("Colocou peerName: " + peerInfo);
+        System.out.println("Colocou " + peerName +": " + peerInfo);
     }
 
     public PeerInfo getForeignInfo(String peerName){
+        System.out.println("Tentou pegar key " + peerName);
         if(foreignersInfo.containsKey(peerName))
             System.out.println("Key esta presente");
         return foreignersInfo.getOrDefault(peerName, null);
