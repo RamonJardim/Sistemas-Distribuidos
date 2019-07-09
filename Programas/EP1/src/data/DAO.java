@@ -17,7 +17,7 @@ public class DAO {
     private static long infoNumber = 0;
 
     private DAO(){
-
+        //foreignersInfo.put("V", new PeerInfo("V",0, new ArrayList<Metadata>(), "V"));
     }
 
     private PeerInfo internInfo;

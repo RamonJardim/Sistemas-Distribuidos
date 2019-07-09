@@ -27,9 +27,8 @@ public class ForeignStateSender extends Thread { // Este representa T3
         PeerInfo infoToSend;
 
         while(true){
-            Thread.sleep(500);
-
             do {
+                Thread.sleep(500);
                 infoPeerToSendName = Randomizer.getRandomPeer(DAO.getPeerName());
                 infoToSend = DAO.getDAO().getForeignInfo(infoPeerToSendName);
             } while(infoToSend == null);

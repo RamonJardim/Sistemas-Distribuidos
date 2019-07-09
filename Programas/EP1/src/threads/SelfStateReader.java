@@ -54,7 +54,8 @@ public class SelfStateReader extends Thread { // Este representa T1
                 "atual de %s: %d.", DAO.getPeerName(), Serializer.listFiles(myFilesList), DAO.getPeerName(),
                 dao.getInternInfo().getInfoNumber()));
         } catch (IOException e) {
-           System.out.println("Erro em T1: " + e.getMessage());
+           System.out.println("Erro em T1: ");
+           e.printStackTrace();
         }
     }
 
