@@ -21,7 +21,7 @@ public class DAO {
     }
 
     private PeerInfo internInfo;
-    private Map<String, PeerInfo> foreignersInfo = new ConcurrentHashMap<String, PeerInfo>();
+    private static Map<String, PeerInfo> foreignersInfo = new ConcurrentHashMap<String, PeerInfo>();
 
     public static DAO getDAO(){
         if(dao == null)
@@ -57,8 +57,8 @@ public class DAO {
             }
         }
         peerInfo.setReceiveMoment(System.currentTimeMillis());
-        foreignersInfo.put(peerName, peerInfo);
-        System.out.println("Colocou " + peerName +": " + peerInfo);
+        foreignersInfo.put(peerInfo.getPeerName(), peerInfo);
+        System.out.println("Colocou " + peerInfo.getPeerName() +": " + peerInfo);
     }
 
     public PeerInfo getForeignInfo(String peerName){
