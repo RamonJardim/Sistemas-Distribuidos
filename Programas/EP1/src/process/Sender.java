@@ -21,8 +21,6 @@ public abstract class Sender {
             serializedInfo = Serializer.convertToBytes(info);
             packet = new DatagramPacket(serializedInfo, serializedInfo.length, ipAddress, port);
             socketClient.send(packet);
-            System.out.println("\n-------\nSent packet to: " + IP + "\n-------\n");
-
         } catch(Exception e){
             e.printStackTrace();
         } finally {

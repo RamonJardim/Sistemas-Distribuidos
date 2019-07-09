@@ -29,12 +29,10 @@ public class Receiver extends Thread {
                 Thread.sleep(500);
 
                 byte[] receivedData = new byte[16384];
+
                 DatagramPacket receivedPacket = new DatagramPacket(receivedData, receivedData.length);
-
                 serverSocket.receive(receivedPacket);
-
                 InetAddress iPAddress = receivedPacket.getAddress();
-                System.out.println("\n-------\nSent packet to: " + iPAddress.getHostAddress() + "\n-------\n");
                 PeerInfo receivedMetadata = (PeerInfo) (Serializer.convertFromBytes(receivedPacket.getData()));
 
                 DAO.getDAO().setForeignersInfo(receivedMetadata);
