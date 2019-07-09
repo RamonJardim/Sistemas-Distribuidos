@@ -40,7 +40,7 @@ public class SelfStateReader extends Thread { // Este representa T1
             File folder = new File(DAO.getFileFolderPath());
             File[] filesList = folder.listFiles();
             BasicFileAttributes attributes;
-            List<Metadata> myFilesList = new ArrayList();
+            List<Metadata> myFilesList = new ArrayList<Metadata>();
 
             for (File file : filesList) {
                 attributes = Files.readAttributes(file.toPath(), BasicFileAttributes.class);

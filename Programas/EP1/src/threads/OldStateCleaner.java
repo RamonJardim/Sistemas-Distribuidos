@@ -5,7 +5,7 @@ import models.PeerInfo;
 
 import java.util.Map;
 
-public class OldStateCleaner extends Thread {
+public class OldStateCleaner extends Thread { //T4
     @Override
     public void run() {
         cleanInfo();
