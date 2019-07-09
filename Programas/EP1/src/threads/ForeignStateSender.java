@@ -31,14 +31,14 @@ public class ForeignStateSender extends Thread { // Este representa T3
                 Thread.sleep(500);
                 infoPeerToSendName = Randomizer.getRandomPeer(DAO.getPeerName());
                 infoToSend = DAO.getDAO().getForeignInfo(infoPeerToSendName);
-                System.out.println("Enviar info de: " + infoPeerToSendName + " " + infoToSend);
+                //System.out.println("Enviar info de: " + infoPeerToSendName + " " + infoToSend);
             } while(infoToSend == null);
 
             infoToSend.setPeerSender(DAO.getPeerName());
 
             peerToSendName = Randomizer.getRandomPeer(DAO.getPeerName(), infoPeerToSendName);
             peerToSendIP = Neighbors.getPeerIP(peerToSendName);
-            System.out.println("Enviar para: " + peerToSendName + " " + peerToSendIP);
+            //System.out.println("Enviar para: " + peerToSendName + " " + peerToSendIP);
 
             Sender.send(peerToSendIP, infoToSend, Neighbors.PORT);
 
