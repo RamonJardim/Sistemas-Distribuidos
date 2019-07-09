@@ -1,0 +1,16 @@
+SSH:
+	ssh -i "EP1Testes.pem" ubuntu@
+
+Path para src:
+	cd ~/SD/Sistemas-Distribuidos/Programas/EP1/src/
+
+Pull:
+	git pull
+
+Compilar e rodar:
+	javac -sourcepath . entities/Peer.java
+	java entities.Peer
+ 
+ Limpar pasta files:
+	rm ~/SD/Sistemas-Distribuidos/Programas/EP1/files/*
+	touch ~/SD/Sistemas-Distribuidos/Programas/EP1/files/dummy.txt

@@ -10,7 +10,7 @@ import java.util.Random;
 
 public abstract class Randomizer {
     public static String getRandomPeer(String... excludes) throws Exception {
-        ArrayList<String> peers = new ArrayList();
+        ArrayList<String> peers = new ArrayList<String>();
         List<String> excludesList = Arrays.asList(excludes);
         String peer;
         peers.add("V");
