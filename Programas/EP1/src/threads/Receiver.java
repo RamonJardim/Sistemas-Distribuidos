@@ -26,7 +26,7 @@ public class Receiver extends Thread {
         DatagramSocket serverSocket = new DatagramSocket(Neighbors.PORT);
         while(true) {
             try {
-                Thread.sleep(500);
+                //Thread.sleep(500);
 
                 byte[] receivedData = new byte[16384];
 
