@@ -28,20 +28,20 @@ public class Receiver extends Thread {
             try {
                 Thread.sleep(500);
 
-                byte[] receivedData = new byte[1024];
+                byte[] receivedData = new byte[16384];
                 DatagramPacket receivedPacket = new DatagramPacket(receivedData, receivedData.length);
 
                 serverSocket.receive(receivedPacket);
 
-                InetAddress IPAddress = receivedPacket.getAddress();
-
+                InetAddress iPAddress = receivedPacket.getAddress();
+                System.out.println("\n-------\nSent packet to: " + iPAddress.getHostAddress() + "\n-------\n");
                 PeerInfo receivedMetadata = (PeerInfo) (Serializer.convertFromBytes(receivedPacket.getData()));
 
                 DAO.getDAO().setForeignersInfo(receivedMetadata);
 
                 System.out.println(String.format("Console peer %s: Recebimento do estado %d do peer %s, " +
                                 "arquivos: (%s) por gossip vindo do peer %s.", DAO.getPeerName(), receivedMetadata.getInfoNumber(),
-                        receivedMetadata.getPeerSender(), Serializer.listFiles(receivedMetadata.getFilesInfo()), receivedMetadata.getPeerSender()));
+                        receivedMetadata.getPeerName(), Serializer.listFiles(receivedMetadata.getFilesInfo()), receivedMetadata.getPeerSender()));
 
             } catch (OutdatedInfoException e) {
                 System.out.println(String.format("Console peer %s: Recebimento ANTIGO do estado %d do peer %s (atual: %d), " +

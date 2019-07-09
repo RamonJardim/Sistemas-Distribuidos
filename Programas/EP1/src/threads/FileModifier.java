@@ -25,7 +25,7 @@ public class FileModifier extends Thread {
         int index;
         while(true) {
             Thread.sleep(500);
-            if (Math.random() > 0.60) {
+            if (Math.random() > 0.80) {
                 String fileName = Randomizer.getFileName();
                 file = new File(DAO.getFileFolderPath() + fileName + ".txt");
                 file.createNewFile();
