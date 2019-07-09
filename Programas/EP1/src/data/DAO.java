@@ -17,7 +17,7 @@ public class DAO {
     private static long infoNumber = 0;
 
     private DAO(){
-        foreignersInfo.put("V", new PeerInfo("V", 0, new ArrayList<Metadata>(), "Y"));
+
     }
 
     private PeerInfo internInfo;
@@ -73,6 +73,6 @@ public class DAO {
     }
 
     public static String getFileFolderPath(){
-        return System.getProperty("os.name").contains("Windows") ? "./files/" : "./Programas/EP1/files/";
+        return System.getProperty("os.name").contains("Windows") ? "./files/" : "../files/";
     }
 }

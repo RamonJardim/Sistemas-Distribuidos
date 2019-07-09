@@ -14,17 +14,16 @@ import java.net.InetAddress;
 public class Receiver extends Thread {
     @Override
     public void run() {
-        receiveInfo();
+        try {
+            receiveInfo();
+        } catch (Exception e) {
+            System.out.println("Erro no receiver: ");
+            e.printStackTrace();
+        }
     }
 
-    private void receiveInfo() {
-        DatagramSocket serverSocket;
-        try {
-            serverSocket = new DatagramSocket(Neighbors.PORT);
-        }catch (Exception e){
-            System.out.println("Erro no Receiver: " + e.getMessage());
-            return;
-        }
+    private void receiveInfo() throws Exception {
+        DatagramSocket serverSocket = new DatagramSocket(Neighbors.PORT);
         while(true) {
             try {
                 Thread.sleep(500);
@@ -52,8 +51,6 @@ public class Receiver extends Thread {
                 System.out.println(String.format("Console peer %s: recebimento DUPLICADO do estado %d do peer %s, arquivos: (%s)" +
                                 " vindo do peer %s", DAO.getPeerName(), e.getPeerInfo().getInfoNumber(), e.getPeerInfo().getPeerName(), Serializer.listFiles(e.getPeerInfo().getFilesInfo()),
                         e.getPeerInfo().getPeerSender()));
-            } catch (Exception e) {
-                System.out.println("Erro no Receiver " + e.getMessage());
             }
         }
     }

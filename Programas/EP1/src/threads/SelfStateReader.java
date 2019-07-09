@@ -30,7 +30,8 @@ public class SelfStateReader extends Thread { // Este representa T1
                 updateMetadata();
             }
         }catch(Exception e){
-            System.out.println("Erro em T1: " + e.getMessage());
+            System.out.println("Erro em T1: ");
+            e.printStackTrace();
         }
     }
 

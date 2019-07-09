@@ -14,7 +14,8 @@ public class SelfStateSender extends Thread { // Este representa T2
         try {
             sendInfo();
         } catch (Exception e) {
-            System.out.println("Erro em T2: " + e.getMessage());
+            System.out.println("Erro em T2: ");
+            e.printStackTrace();
         }
     }
 

@@ -14,7 +14,8 @@ public class ForeignStateSender extends Thread { // Este representa T3
         try {
             sendInfo();
         } catch (Exception e) {
-            System.out.println("Erro em T3: " + e.getMessage());
+            System.out.println("Erro em T3: ");
+            e.printStackTrace();
         }
     }
 

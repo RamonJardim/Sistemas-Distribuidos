@@ -1,0 +1,6 @@
+data/*.java
+entities/*.java
+exceptions/*.java
+models/*.java
+process/*.java
+threads/*.java
