@@ -23,7 +23,7 @@ public abstract class Randomizer {
             throw new Exception("All peers excluded from being randomized.");
 
         do{
-            peer = peers.get((int)(Math.random()*4));
+            peer = peers.get((int)(Math.random()*5));
         } while(excludesList.contains(peer));
 
         return peer;
