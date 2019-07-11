@@ -4,11 +4,11 @@ import java.util.HashMap;
 
 public abstract class Neighbors {
     public static final HashMap<String, String> NEIGHBORS = new HashMap<String, String>() {{
-        put("V", "54.207.88.140");
-        put("W", "18.228.116.163");
-        put("X", "18.228.136.201");
-        put("Y", "18.228.152.193");
-        put("Z", "18.231.172.67");
+        put("V", "18.231.112.127");
+        put("W", "52.67.107.28");
+        put("X", "18.228.136.98");
+        put("Y", "18.231.113.5");
+        put("Z", "52.67.253.30");
     }};
     public static final int PORT = 9876;
 
