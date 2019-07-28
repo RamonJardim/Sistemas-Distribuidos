@@ -1,12 +1,13 @@
 package client;
 
 import communication.*;
+import data.Randomizer;
 
 import java.net.SocketTimeoutException;
 import java.util.Scanner;
 
 
-public class UserInteraction {
+public abstract class UserInteraction {
     private static Scanner sc = new Scanner(System.in);
 
     public static void begin(){
@@ -14,12 +15,17 @@ public class UserInteraction {
     }
 
     private static void search() {
-        String searchFile;
-        searchFile = getFileNameFromUser();
+        String searchFile = getFileNameFromUser();
         try {
-            Messenger.beginFlood(searchFile);
+            String peer = Randomizer.getRandomPeer();
+            System.out.println("Pesquisando por arquivo " + searchFile + " no peer " + peer);
+            Messenger.beginFlood(searchFile, peer);
+
         } catch (SocketTimeoutException e) {
-            showErrorToUser("Tempo esgotado.");
+            System.out.println("Tempo esgotado para consulta por arquivo " + searchFile);
+        } catch (Exception e){
+            System.out.println("Erro: ");
+            e.printStackTrace();
         }
     }
 

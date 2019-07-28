@@ -3,7 +3,7 @@ package data;
 import java.io.*;
 import java.util.List;
 
-public class Serializer {
+public abstract class Serializer {
 
     public static byte[] convertToBytes(Object object) throws IOException {
         try (ByteArrayOutputStream bos = new ByteArrayOutputStream();

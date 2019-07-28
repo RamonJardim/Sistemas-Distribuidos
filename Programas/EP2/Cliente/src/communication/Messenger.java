@@ -5,11 +5,11 @@ import data.Randomizer;
 
 import java.net.SocketTimeoutException;
 
-public class Messenger {
-    public static String beginFlood(String fileName) throws SocketTimeoutException {
+public abstract class Messenger {
+    public static String beginFlood(String fileName, String peerName) throws SocketTimeoutException {
         String response = "";
         try {
-            MessageSender.sendMessage(Neighbors.getPeerIP(Randomizer.getRandomPeer()), Neighbors.PORT, fileName);
+            MessageSender.sendMessage(Neighbors.getPeerIP(peerName), Neighbors.PORT, fileName);
             response = Receiver.receiveMessage();
         } catch(SocketTimeoutException ste) {
             throw ste;

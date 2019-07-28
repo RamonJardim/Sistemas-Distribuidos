@@ -18,6 +18,7 @@ public abstract class Neighbors {
         put("L", "18.231.112.127");
     }};
     public static final int PORT = 9876;
+    public static final int DOWNLOAD_PORT = 8765;
 
     public static String getPeerIP(String peerName){
         return NEIGHBORS.get(peerName);

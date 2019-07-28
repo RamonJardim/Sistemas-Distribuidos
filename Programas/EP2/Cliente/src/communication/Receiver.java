@@ -5,7 +5,7 @@ import data.Serializer;
 
 import java.net.*;
 
-public class Receiver {
+public abstract class Receiver {
     public static String receiveMessage() throws SocketTimeoutException {
         return receiveDataGram();
     }
