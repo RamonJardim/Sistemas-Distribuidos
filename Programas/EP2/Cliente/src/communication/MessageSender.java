@@ -1,11 +1,14 @@
 package communication;
 
+import data.Serializer;
+import models.ClientSearch;
+
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 public abstract class MessageSender {
-    public static void sendMessage(String IP, int port, String toSend) {
+    public static void sendMessage(String IP, int port, ClientSearch toSend) {
         DatagramSocket socketClient = null;
         InetAddress ipAddress;
         try {
@@ -15,7 +18,7 @@ public abstract class MessageSender {
             byte[] serializedInfo;
             DatagramPacket packet;
 
-            serializedInfo = toSend.getBytes();
+            serializedInfo = Serializer.convertToBytes(toSend);
             packet = new DatagramPacket(serializedInfo, serializedInfo.length, ipAddress, port);
             socketClient.send(packet);
         } catch(Exception e){

@@ -1,21 +1,20 @@
 package models;
 
-public class SearchInfo {
+import java.io.Serializable;
+
+public class ClientSearch implements Serializable {
     private String clientIP;
     private int clientPort;
     private String fileName;
-    private int TTL;
 
-    public SearchInfo(String clientIP, int clientPort, String fileName){
+    private long ID;
+
+    public ClientSearch(String clientIP, int clientPort, String fileName, long ID){
         this.clientIP = clientIP;
         this.clientPort = clientPort;
         this.fileName = fileName;
-        
-        this.TTL = 5; // GlobalInfo?
-    }
 
-    public int getTTL(){
-        return this.TTL;
+        this.ID = ID;
     }
 
     public String getFileName(){
@@ -29,4 +28,14 @@ public class SearchInfo {
     public String getClientIP(){
         return this.clientIP;
     }
+
+    public long getID() {
+        return ID;
+    }
+
+    public void setID(long ID) {
+        this.ID = ID;
+    }
+
+
 }

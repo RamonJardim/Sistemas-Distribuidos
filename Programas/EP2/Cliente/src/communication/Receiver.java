@@ -12,15 +12,14 @@ public abstract class Receiver {
 
     private static String receiveDataGram() throws SocketTimeoutException {
         String receivedString = "";
-        try {
-            DatagramSocket serverSocket = new DatagramSocket(Neighbors.PORT);
+        try(DatagramSocket serverSocket = new DatagramSocket(Neighbors.SEARCH_PORT)) {
             byte[] receivedData = new byte[16384];
 
             DatagramPacket receivedPacket = new DatagramPacket(receivedData, receivedData.length);
             serverSocket.setSoTimeout(1000);
 
             serverSocket.receive(receivedPacket);
-            InetAddress iPAddress = receivedPacket.getAddress();
+            InetAddress ipAddress = receivedPacket.getAddress();
             receivedString = (String) (Serializer.convertFromBytes(receivedPacket.getData()));
         } catch(SocketTimeoutException ste) {
             throw ste;

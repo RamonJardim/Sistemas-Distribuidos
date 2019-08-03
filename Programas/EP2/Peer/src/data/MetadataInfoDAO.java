@@ -9,29 +9,27 @@ import models.PeerInfo;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class DAO {
+public class MetadataInfoDAO {
 
-    private static DAO dao = null;
+    private static MetadataInfoDAO metadataInfoDao = null;
 
     private static String peerName;
     private static long infoNumber = 0;
 
-    private DAO(){
-        //foreignersInfo.put("V", new PeerInfo("V",0, new ArrayList<Metadata>(), "V"));
-    }
+    private MetadataInfoDAO(){}
 
     private PeerInfo internInfo;
     private Map<String, PeerInfo> foreignersInfo = new ConcurrentHashMap<String, PeerInfo>();
 
-    public static DAO getDAO(){
-        if(dao == null)
-            return dao = new DAO();
+    public static MetadataInfoDAO getDAO(){
+        if(metadataInfoDao == null)
+            return metadataInfoDao = new MetadataInfoDAO();
         else
-            return dao;
+            return metadataInfoDao;
     }
 
     public static void setPeerName(String peerName) {
-        DAO.peerName = peerName;
+        MetadataInfoDAO.peerName = peerName;
     }
 
     public PeerInfo getInternInfo() {
@@ -39,7 +37,7 @@ public class DAO {
     }
 
     public void setInternInfo(List<Metadata> files) {
-        this.internInfo = new PeerInfo(peerName, infoNumber++, files, DAO.getPeerName());
+        this.internInfo = new PeerInfo(peerName, infoNumber++, files, MetadataInfoDAO.getPeerName());
     }
 
     public static String getPeerName() {
@@ -58,21 +56,17 @@ public class DAO {
         }
         peerInfo.setReceiveMoment(System.currentTimeMillis());
         foreignersInfo.put(peerInfo.getPeerName(), peerInfo);
-        //System.out.println("Colocou " + peerInfo.getPeerName() +": " + peerInfo);
     }
 
     public PeerInfo getForeignInfo(String peerName){
-        //System.out.println("Tentou pegar key " + peerName);
-        //if(foreignersInfo.containsKey(peerName))
-        //    System.out.println("Key esta presente");
-        return foreignersInfo.getOrDefault(peerName, null);
+    return foreignersInfo.getOrDefault(peerName, null);
     }
 
     public void removePeerInfo(String peerName) {
         foreignersInfo.remove(peerName);
     }
 
-    public Map<String, PeerInfo> getForeignsMap() {
+    public Map<String, PeerInfo> getForeignersMap() {
         return foreignersInfo;
     }
 

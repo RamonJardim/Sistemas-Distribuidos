@@ -1,7 +1,8 @@
 package communication;
 
+import data.DAO;
 import data.Neighbors;
-import data.Randomizer;
+import models.ClientSearch;
 
 import java.net.SocketTimeoutException;
 
@@ -9,7 +10,8 @@ public abstract class Messenger {
     public static String beginFlood(String fileName, String peerName) throws SocketTimeoutException {
         String response = "";
         try {
-            MessageSender.sendMessage(Neighbors.getPeerIP(peerName), Neighbors.PORT, fileName);
+            ClientSearch cs = new ClientSearch("A", Neighbors.SEARCH_PORT, fileName, DAO.getDao().getAndIncrementActualID());
+            MessageSender.sendMessage(Neighbors.getPeerIP(peerName), Neighbors.SEARCH_PORT, cs);
             response = Receiver.receiveMessage();
         } catch(SocketTimeoutException ste) {
             throw ste;

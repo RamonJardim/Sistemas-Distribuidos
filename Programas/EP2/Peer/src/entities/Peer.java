@@ -1,23 +1,32 @@
 package entities;
 
-import data.DAO;
-import threads.*;
+import data.MetadataInfoDAO;
+import data.SearchDAO;
+import threads.search.SearchReceiver;
+import threads.state.*;
 
 public class Peer {
     public static void main(String[] args) {
         String peerName = args[0];
-        DAO.setPeerName(peerName);
-        Receiver T0 = new Receiver();
+        String TTL = args[1];
+
+        MetadataInfoDAO.setPeerName(peerName);
+        SearchDAO.setTTL(Integer.parseInt(TTL));
+
+        StateReceiver T0 = new StateReceiver();
         SelfStateReader T1 = new SelfStateReader();
         SelfStateSender T2 = new SelfStateSender();
         ForeignStateSender T3 = new ForeignStateSender();
         OldStateCleaner T4 = new OldStateCleaner();
-        FileModifier modifier = new FileModifier();
+
+        SearchReceiver sr = new SearchReceiver();
+
         T0.start();
         T1.start();
         T2.start();
         T3.start();
         T4.start();
-        modifier.start();
+
+        sr.start();
     }
 }

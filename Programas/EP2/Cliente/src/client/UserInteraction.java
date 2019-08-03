@@ -11,7 +11,8 @@ public abstract class UserInteraction {
     private static Scanner sc = new Scanner(System.in);
 
     public static void begin(){
-        search();
+        while(true)
+            search();
     }
 
     private static void search() {

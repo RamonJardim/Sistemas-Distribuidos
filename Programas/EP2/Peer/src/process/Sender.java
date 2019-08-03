@@ -3,12 +3,13 @@ package process;
 import data.Neighbors;
 import models.PeerInfo;
 
+import java.io.Serializable;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 public abstract class Sender {
-    public static void send(String IP, PeerInfo info, int port) {
+    public static void send(String IP, Serializable info, int port) {
         DatagramSocket socketClient = null;
         InetAddress ipAddress;
         try {

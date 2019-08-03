@@ -1,11 +1,10 @@
-package threads;
+package threads.state;
 
-import data.DAO;
+import data.MetadataInfoDAO;
 import data.Neighbors;
 import models.PeerInfo;
 import process.Randomizer;
 import process.Sender;
-import process.Serializer;
 
 public class SelfStateSender extends Thread { // Este representa T2
 
@@ -26,14 +25,14 @@ public class SelfStateSender extends Thread { // Este representa T2
 
         while (true) {
             Thread.sleep(500);
-            peerToSendName = Randomizer.getRandomPeer(DAO.getPeerName());
+            peerToSendName = Randomizer.getRandomPeer(MetadataInfoDAO.getPeerName());
             peerToSendIP = Neighbors.getPeerIP(peerToSendName);
-            infoToSend = DAO.getDAO().getInternInfo();
-            Sender.send(peerToSendIP, infoToSend, Neighbors.PORT);
+            infoToSend = MetadataInfoDAO.getDAO().getInternInfo();
+            Sender.send(peerToSendIP, infoToSend, Neighbors.STATE_EXCHANGE_PORT);
 
-            System.out.println(String.format("Console peer %s: Thread T2 - Envio do estado: %d, arquivos: (%s)" +
-                    " por gossip ao peer: %s", DAO.getPeerName(), infoToSend.getInfoNumber(),
-                    Serializer.listFiles(infoToSend.getFilesInfo()), peerToSendName));
+            //System.out.println(String.format("Console peer %s: Thread T2 - Envio do estado: %d, arquivos: (%s)" +
+            //        " por gossip ao peer: %s", MetadataInfoDAO.getPeerName(), infoToSend.getInfoNumber(),
+            //        Serializer.listFiles(infoToSend.getFilesInfo()), peerToSendName));
         }
     }
 }

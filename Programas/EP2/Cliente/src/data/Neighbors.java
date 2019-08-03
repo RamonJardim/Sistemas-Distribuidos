@@ -4,20 +4,21 @@ import java.util.HashMap;
 
 public abstract class Neighbors {
     public static final HashMap<String, String> NEIGHBORS = new HashMap<String, String>() {{
-        put("A", "18.231.112.127");
-        put("B", "18.231.112.127");
-        put("C", "18.231.112.127");
-        put("D", "18.231.112.127");
-        put("E", "18.231.112.127");
-        put("F", "18.231.112.127");
-        put("G", "18.231.112.127");
-        put("H", "18.231.112.127");
-        put("I", "18.231.112.127");
-        put("J", "18.231.112.127");
-        put("K", "18.231.112.127");
-        put("L", "18.231.112.127");
+        put("A", "172.0.0.1");
+        put("B", "172.0.0.1");
+        put("C", "172.0.0.1");
+        put("D", "172.0.0.1");
+        put("E", "172.0.0.1");
+        put("F", "172.0.0.1");
+        put("G", "172.0.0.1");
+        put("H", "172.0.0.1");
+        put("I", "172.0.0.1");
+        put("J", "172.0.0.1");
+        put("K", "172.0.0.1");
+        put("L", "172.0.0.1");
     }};
-    public static final int PORT = 9876;
+
+    public static final int SEARCH_PORT = 7654;
     public static final int DOWNLOAD_PORT = 8765;
 
     public static String getPeerIP(String peerName){
