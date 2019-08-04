@@ -34,22 +34,22 @@ public class CheckSearch {
     }
 
     private static void printFileNotFound(SearchInfo s, String peerToSend) {
-        System.out.println("Console peer " + MetadataInfoDAO.getPeerName() + ": recebendo pesquisa " + s.getFileName() +
-                ", NÃO tenho o arquivo, encaminho para " + peerToSend + ".");
+        System.out.println("Console peer " + MetadataInfoDAO.getPeerName() + ": recebendo pesquisa \"" + s.getFileName() +
+                "\", NÃO tenho o arquivo, encaminho para " + peerToSend + ".");
     }
 
     private static void printHaveFile(SearchInfo s) {
-        System.out.println("Console peer " + MetadataInfoDAO.getPeerName() +": recebendo pesquisa " + s.getFileName() +
-                ", tenho o arquivo " + s.getFileName() + " no meu estado.");
+        System.out.println("Console peer " + MetadataInfoDAO.getPeerName() +": recebendo pesquisa \"" + s.getFileName() +
+                "\", tenho o arquivo " + s.getFileName() + " no meu estado.");
     }
 
     private static void printTTLExpired(SearchInfo s) {
-        System.out.println("Console peer " + MetadataInfoDAO.getPeerName() + ": recebendo pesquisa " + s.getFileName() +
-                ", TTL=ZERO NÃO ENCAMINHO.");
+        System.out.println("Console peer " + MetadataInfoDAO.getPeerName() + ": recebendo pesquisa \"" + s.getFileName() +
+                "\", TTL=ZERO NÃO ENCAMINHO.");
     }
 
     private static void printDuplicate(SearchInfo s) {
-        System.out.println("Console peer " + MetadataInfoDAO.getPeerName() + ": recebendo pesquisa " + s.getFileName() +
-                ", MSG DUPLICADA NÃO ENCAMINHO.");
+        System.out.println("Console peer " + MetadataInfoDAO.getPeerName() + ": recebendo pesquisa \"" + s.getFileName() +
+                "\", MSG DUPLICADA NÃO ENCAMINHO.");
     }
 }

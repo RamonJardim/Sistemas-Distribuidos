@@ -1,14 +1,12 @@
 package threads.search;
 
 import data.Neighbors;
-import models.ClientSearch;
 import models.SearchInfo;
 import process.CheckSearch;
 import process.Serializer;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.InetAddress;
 
 public class FloodReceiver extends Thread {
     @Override
