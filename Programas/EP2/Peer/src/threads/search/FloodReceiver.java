@@ -28,13 +28,13 @@ public class FloodReceiver extends Thread {
 
                 DatagramPacket receivedPacket = new DatagramPacket(receivedData, receivedData.length);
                 serverSocket.receive(receivedPacket);
-                InetAddress iPAddress = receivedPacket.getAddress();
+                //InetAddress iPAddress = receivedPacket.getAddress();
                 SearchInfo searchInfo = (SearchInfo) (Serializer.convertFromBytes(receivedPacket.getData()));
 
-                SearchInfo search = new SearchInfo(searchInfo.getClientIP(), searchInfo.getClientPort(),
-                        searchInfo.getFileName(), searchInfo.getID());
+                //SearchInfo search = new SearchInfo(searchInfo.getClientIP(), searchInfo.getClientPort(),
+                //        searchInfo.getFileName(), searchInfo.getID());
 
-                CheckSearch.checkSearchInfo(search);
+                CheckSearch.checkSearchInfo(searchInfo);
             }
         }
     }

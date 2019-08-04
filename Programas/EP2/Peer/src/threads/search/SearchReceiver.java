@@ -28,10 +28,10 @@ public class SearchReceiver extends Thread {
 
                 DatagramPacket receivedPacket = new DatagramPacket(receivedData, receivedData.length);
                 serverSocket.receive(receivedPacket);
-                InetAddress iPAddress = receivedPacket.getAddress();
+                InetAddress ipAddress = receivedPacket.getAddress();
                 ClientSearch clientSearch = (ClientSearch) (Serializer.convertFromBytes(receivedPacket.getData()));
 
-                SearchInfo search = new SearchInfo(iPAddress.getHostAddress(), Neighbors.RESPONSE_PORT,
+                SearchInfo search = new SearchInfo(ipAddress.getHostAddress(), Neighbors.RESPONSE_PORT,
                         clientSearch.getFileName(), clientSearch.getID());
 
                 CheckSearch.checkSearchInfo(search);
