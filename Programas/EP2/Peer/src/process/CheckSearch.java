@@ -30,7 +30,7 @@ public class CheckSearch {
     private static void sendResponse(SearchInfo s) {
         Sender.send(s.getClientIP(), "OK", Neighbors.RESPONSE_PORT);
         Downloader download = new Downloader(s);
-        download.run();
+        download.start();
     }
 
     private static void printFileNotFound(SearchInfo s, String peerToSend) {
@@ -40,7 +40,7 @@ public class CheckSearch {
 
     private static void printHaveFile(SearchInfo s) {
         System.out.println("Console peer " + MetadataInfoDAO.getPeerName() +": recebendo pesquisa " + s.getFileName() +
-                ", tenho o arquivo" + s.getFileName() + " no meu estado.");
+                ", tenho o arquivo " + s.getFileName() + " no meu estado.");
     }
 
     private static void printTTLExpired(SearchInfo s) {

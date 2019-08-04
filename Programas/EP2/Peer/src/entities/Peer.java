@@ -2,6 +2,7 @@ package entities;
 
 import data.MetadataInfoDAO;
 import data.SearchDAO;
+import threads.search.FloodReceiver;
 import threads.search.SearchReceiver;
 import threads.state.*;
 
@@ -20,6 +21,7 @@ public class Peer {
         OldStateCleaner T4 = new OldStateCleaner();
 
         SearchReceiver sr = new SearchReceiver();
+        FloodReceiver fr = new FloodReceiver();
 
         T0.start();
         T1.start();
@@ -28,5 +30,6 @@ public class Peer {
         T4.start();
 
         sr.start();
+        fr.start();
     }
 }

@@ -16,7 +16,7 @@ public abstract class Receiver {
             byte[] receivedData = new byte[16384];
 
             DatagramPacket receivedPacket = new DatagramPacket(receivedData, receivedData.length);
-            serverSocket.setSoTimeout(1000);
+            serverSocket.setSoTimeout(5000);
 
             serverSocket.receive(receivedPacket);
             InetAddress ipAddress = receivedPacket.getAddress();
