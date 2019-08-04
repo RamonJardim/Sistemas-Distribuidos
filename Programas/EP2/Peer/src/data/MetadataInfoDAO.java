@@ -36,7 +36,7 @@ public class MetadataInfoDAO {
         return internInfo;
     }
 
-    public void setInternInfo(List<Metadata> files) {
+    public void setInternInfo(ArrayList<Metadata> files) {
         this.internInfo = new PeerInfo(peerName, infoNumber++, files, MetadataInfoDAO.getPeerName());
     }
 
@@ -72,5 +72,9 @@ public class MetadataInfoDAO {
 
     public static String getFileFolderPath(){
         return System.getProperty("os.name").contains("Windows") ? "./files/" : "../files/";
+    }
+
+    public boolean fileIsPresent(String fileName) {
+        return internInfo.getFilesInfo().stream().anyMatch(metadata -> metadata.getFileName().equals(fileName));
     }
 }

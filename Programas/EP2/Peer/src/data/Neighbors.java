@@ -21,6 +21,7 @@ public abstract class Neighbors {
     public static final int DOWNLOAD_PORT = 8765;
     public static final int SEARCH_PORT = 7654;
     public static final int FLOOD_PORT = 6543;
+    public static final int RESPONSE_PORT = 5432;
 
     public static String getPeerIP(String peerName){
         return NEIGHBORS.get(peerName);

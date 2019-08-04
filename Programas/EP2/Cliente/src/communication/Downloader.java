@@ -1,23 +1,22 @@
 package communication;
 
+import data.DAO;
 import data.Neighbors;
 
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.Socket;
 
 public abstract class Downloader {
     public static void download(String fileName, String peer) {
         try {
-            int fileSize = 2000000000;
+            int fileSize = 200000000; // 200mb
             int bytesRead;
             int currentTot = 0;
             Socket socket = new Socket(Neighbors.getPeerIP(peer), Neighbors.DOWNLOAD_PORT);
             byte[] byteArray = new byte[fileSize];
             InputStream is = socket.getInputStream();
-            FileOutputStream fos = new FileOutputStream(fileName);
+            new File(DAO.getFileFolderPath()).mkdir();
+            FileOutputStream fos = new FileOutputStream(DAO.getFileFolderPath() + fileName);
             BufferedOutputStream bos = new BufferedOutputStream(fos);
             bytesRead = is.read(byteArray, 0, byteArray.length);
             currentTot = bytesRead;

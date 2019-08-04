@@ -10,7 +10,7 @@ public abstract class Messenger {
     public static String beginFlood(String fileName, String peerName) throws SocketTimeoutException {
         String response = "";
         try {
-            ClientSearch cs = new ClientSearch("A", Neighbors.SEARCH_PORT, fileName, DAO.getDao().getAndIncrementActualID());
+            ClientSearch cs = new ClientSearch(fileName, DAO.getDao().getAndIncrementActualID());
             MessageSender.sendMessage(Neighbors.getPeerIP(peerName), Neighbors.SEARCH_PORT, cs);
             response = Receiver.receiveMessage();
         } catch(SocketTimeoutException ste) {

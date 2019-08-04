@@ -12,7 +12,7 @@ public abstract class Receiver {
 
     private static String receiveDataGram() throws SocketTimeoutException {
         String receivedString = "";
-        try(DatagramSocket serverSocket = new DatagramSocket(Neighbors.SEARCH_PORT)) {
+        try(DatagramSocket serverSocket = new DatagramSocket(Neighbors.RESPONSE_PORT)) {
             byte[] receivedData = new byte[16384];
 
             DatagramPacket receivedPacket = new DatagramPacket(receivedData, receivedData.length);

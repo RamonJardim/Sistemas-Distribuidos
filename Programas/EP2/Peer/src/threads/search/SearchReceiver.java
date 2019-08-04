@@ -1,7 +1,6 @@
 package threads.search;
 
 import data.Neighbors;
-import data.SearchDAO;
 import models.ClientSearch;
 import models.SearchInfo;
 import process.CheckSearch;
@@ -32,7 +31,7 @@ public class SearchReceiver extends Thread {
                 InetAddress iPAddress = receivedPacket.getAddress();
                 ClientSearch clientSearch = (ClientSearch) (Serializer.convertFromBytes(receivedPacket.getData()));
 
-                SearchInfo search = new SearchInfo(clientSearch.getClientIP(), clientSearch.getClientPort(),
+                SearchInfo search = new SearchInfo(iPAddress.getHostAddress(), Neighbors.RESPONSE_PORT,
                         clientSearch.getFileName(), clientSearch.getID());
 
                 CheckSearch.checkSearchInfo(search);

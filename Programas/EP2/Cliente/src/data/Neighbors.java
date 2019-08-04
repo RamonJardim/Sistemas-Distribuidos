@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public abstract class Neighbors {
     public static final HashMap<String, String> NEIGHBORS = new HashMap<String, String>() {{
-        put("A", "172.0.0.1");
+        put("A", "localhost");
         put("B", "172.0.0.1");
         put("C", "172.0.0.1");
         put("D", "172.0.0.1");
@@ -18,8 +18,9 @@ public abstract class Neighbors {
         put("L", "172.0.0.1");
     }};
 
-    public static final int SEARCH_PORT = 7654;
     public static final int DOWNLOAD_PORT = 8765;
+    public static final int SEARCH_PORT = 7654;
+    public static final int RESPONSE_PORT = 5432;
 
     public static String getPeerIP(String peerName){
         return NEIGHBORS.get(peerName);

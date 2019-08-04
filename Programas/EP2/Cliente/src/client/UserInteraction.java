@@ -1,6 +1,7 @@
 package client;
 
 import communication.*;
+import data.DAO;
 import data.Randomizer;
 
 import java.net.SocketTimeoutException;
@@ -19,11 +20,14 @@ public abstract class UserInteraction {
         String searchFile = getFileNameFromUser();
         try {
             String peer = Randomizer.getRandomPeer();
-            System.out.println("Pesquisando por arquivo " + searchFile + " no peer " + peer);
-            Messenger.beginFlood(searchFile, peer);
-
+            System.out.println("Console cliente " + DAO.getClientID() + ": Pesquisando por arquivo " + searchFile + " no peer " + peer);
+            if(!Messenger.beginFlood(searchFile, peer).isEmpty()) {
+                System.out.println("Console cliente " + DAO.getClientID() + ": Baixando arquivo " + searchFile + " do peer " + peer + ".");
+                Downloader.download(searchFile, peer);
+                System.out.println("Console cliente " + DAO.getClientID() + ": arquivo " + searchFile + " baixado");
+            }
         } catch (SocketTimeoutException e) {
-            System.out.println("Tempo esgotado para consulta por arquivo " + searchFile);
+            System.out.println("Console cliente " + DAO.getClientID() + ": Tempo esgotado para consulta por arquivo " + searchFile);
         } catch (Exception e){
             System.out.println("Erro: ");
             e.printStackTrace();
@@ -35,7 +39,7 @@ public abstract class UserInteraction {
     }
 
     private static String getFileNameFromUser(){
-        System.out.println("Digite o nome do arquivo que deseja buscar: ");
+        System.out.println("Console cliente " + DAO.getClientID() + ": Digite o nome do arquivo que deseja buscar: ");
         return sc.nextLine();
     }
 

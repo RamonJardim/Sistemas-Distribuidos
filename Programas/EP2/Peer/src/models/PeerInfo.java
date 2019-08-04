@@ -1,16 +1,17 @@
 package models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PeerInfo implements Serializable, Comparable<PeerInfo> {
     private String peerName;
-    private List<Metadata> filesInfo;
+    private ArrayList<Metadata> filesInfo;
     private long infoNumber;    // Número sequencial, quanto maior, mais novo.
     private long receiveMoment;
     private String peerSender;
 
-    public PeerInfo(String peerName, long infoNumber, List<Metadata> actualFiles, String peerSender){
+    public PeerInfo(String peerName, long infoNumber, ArrayList<Metadata> actualFiles, String peerSender){
         this.filesInfo = actualFiles;
         this.infoNumber = infoNumber;
         this.peerName = peerName;
@@ -37,7 +38,7 @@ public class PeerInfo implements Serializable, Comparable<PeerInfo> {
         return this.filesInfo.size();
     }
 
-    public List<Metadata> getFilesInfo(){
+    public ArrayList<Metadata> getFilesInfo(){
         return this.filesInfo;
     }
 
