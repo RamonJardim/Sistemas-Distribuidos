@@ -18,6 +18,8 @@ public abstract class Receiver {
             DatagramPacket receivedPacket = new DatagramPacket(receivedData, receivedData.length);
             serverSocket.setSoTimeout(5000);
 
+            System.out.println("Espera para receber");
+
             serverSocket.receive(receivedPacket);
             InetAddress ipAddress = receivedPacket.getAddress();
             receivedString = (String) (Serializer.convertFromBytes(receivedPacket.getData()));

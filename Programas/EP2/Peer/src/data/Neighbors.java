@@ -4,16 +4,16 @@ import java.util.HashMap;
 
 public abstract class Neighbors {
     public static final HashMap<String, String> NEIGHBORS = new HashMap<String, String>() {{
-        put("A", "3.91.181.190");
-        put("B", "34.227.25.157");
-        put("C", "34.207.160.141");
-        put("D", "34.201.67.183");
-        put("E", "52.91.172.144");
-        put("F", "3.83.91.22");
-        put("G", "52.206.228.157");
-        put("H", "34.205.146.94");
-        put("I", "18.205.27.112");
-        put("J", "18.208.165.130");
+        put("A", "172.31.94.222");
+        put("B", "172.31.86.123");
+        put("C", "172.31.84.211");
+        put("D", "172.31.90.23");
+        put("E", "172.31.90.169");
+        put("F", "172.31.87.198");
+        put("G", "172.31.86.205");
+        put("H", "172.31.84.220");
+        put("I", "172.31.88.144");
+        put("J", "172.31.84.146");
     }};
     public static final int STATE_EXCHANGE_PORT = 9876;
     public static final int DOWNLOAD_PORT = 8765;
