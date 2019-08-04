@@ -10,7 +10,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-public class FloodReceiver extends Thread{
+public class FloodReceiver extends Thread {
     @Override
     public void run() {
         try {
