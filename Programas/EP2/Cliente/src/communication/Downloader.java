@@ -7,11 +7,12 @@ import java.io.*;
 import java.net.Socket;
 
 public abstract class Downloader {
-    public static void download(String fileName, String peer) {
+    public static void download(String fileName, String peer) throws Exception{
         try {
             int fileSize = 200000000; // 200mb
             int bytesRead;
             int currentTot = 0;
+            Thread.sleep(500);
             Socket socket = new Socket(Neighbors.getPeerIP(peer), Neighbors.DOWNLOAD_PORT);
             byte[] byteArray = new byte[fileSize];
             InputStream is = socket.getInputStream();

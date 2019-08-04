@@ -8,8 +8,8 @@ import threads.state.*;
 
 public class Peer {
     public static void main(String[] args) {
-        String peerName = args[0];
-        String TTL = args[1];
+        String peerName = args[1];
+        String TTL = args[0];
 
         MetadataInfoDAO.setPeerName(peerName);
         SearchDAO.setTTL(Integer.parseInt(TTL));

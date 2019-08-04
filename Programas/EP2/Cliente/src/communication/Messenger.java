@@ -12,7 +12,6 @@ public abstract class Messenger {
         try {
             ClientSearch cs = new ClientSearch(fileName, DAO.getDao().getAndIncrementActualID());
             MessageSender.sendMessage(Neighbors.getPeerIP(peerName), Neighbors.SEARCH_PORT, cs);
-            System.out.println("---ENTRANDO NO RECEIVER ---");
             response = Receiver.receiveMessage();
         } catch(SocketTimeoutException ste) {
             throw ste;
