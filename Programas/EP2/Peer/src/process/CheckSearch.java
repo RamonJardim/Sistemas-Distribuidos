@@ -28,9 +28,9 @@ public class CheckSearch {
     }
 
     private static void sendResponse(SearchInfo s) {
-        Sender.send(s.getClientIP(), "OK", Neighbors.RESPONSE_PORT);
         Downloader download = new Downloader(s);
         download.start();
+        Sender.send(s.getClientIP(), "OK", Neighbors.RESPONSE_PORT);
     }
 
     private static void printFileNotFound(SearchInfo s, String peerToSend) {

@@ -21,7 +21,6 @@ public abstract class MessageSender {
             serializedInfo = Serializer.convertToBytes(toSend);
             packet = new DatagramPacket(serializedInfo, serializedInfo.length, ipAddress, port);
             socketClient.send(packet);
-            System.out.println("Enviou");
         } catch(Exception e){
             e.printStackTrace();
         } finally {

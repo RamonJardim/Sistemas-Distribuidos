@@ -18,10 +18,8 @@ public abstract class UserInteraction {
 
     private static void search() {
         String searchFile = getFileNameFromUser();
-        System.out.println("--- DIGITOU O NOME " + searchFile + " ---");
         try {
             String peer = Randomizer.getRandomPeer();
-            System.out.println("--- Sorteou " + peer + " ---");
             System.out.println("Console cliente " + DAO.getClientID() + ": Pesquisando por arquivo " + searchFile + " no peer " + peer);
             if(!Messenger.beginFlood(searchFile, peer).isEmpty()) {
                 System.out.println("Console cliente " + DAO.getClientID() + ": Baixando arquivo " + searchFile + " do peer " + peer + ".");
