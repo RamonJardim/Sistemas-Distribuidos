@@ -18,16 +18,18 @@ public abstract class UserInteraction {
 
     private static void search() {
         String searchFile = getFileNameFromUser();
+        String responsePeer = "";
         try {
             String peer = Randomizer.getRandomPeer();
-            System.out.println("Console cliente " + DAO.getClientID() + ": Pesquisando por arquivo " + searchFile + " no peer " + peer);
-            if(!Messenger.beginFlood(searchFile, peer).isEmpty()) {
-                System.out.println("Console cliente " + DAO.getClientID() + ": Baixando arquivo " + searchFile + " do peer " + peer + ".");
-                Downloader.download(searchFile, peer);
-                System.out.println("Console cliente " + DAO.getClientID() + ": arquivo " + searchFile + " baixado");
+            System.out.println("Console cliente " + DAO.getClientID() + ": Pesquisando por arquivo \"" + searchFile + "\" no peer " + peer);
+            responsePeer = Messenger.beginFlood(searchFile, peer);
+            if(!responsePeer.isEmpty()) {
+                System.out.println("Console cliente " + DAO.getClientID() + ": Baixando arquivo \"" + searchFile + "\" do peer " + peer + ".");
+                Downloader.download(searchFile, responsePeer);
+                System.out.println("Console cliente " + DAO.getClientID() + ": arquivo \"" + searchFile + "\" baixado");
             }
         } catch (SocketTimeoutException e) {
-            System.out.println("Console cliente " + DAO.getClientID() + ": Tempo esgotado para consulta por arquivo " + searchFile);
+            System.out.println("Console cliente " + DAO.getClientID() + ": Tempo esgotado para consulta por arquivo \"" + searchFile+"\"");
         } catch (Exception e){
             System.out.println("Erro: ");
             e.printStackTrace();

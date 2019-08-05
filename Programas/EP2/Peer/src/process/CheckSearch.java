@@ -13,11 +13,11 @@ public class CheckSearch {
     public static void checkSearchInfo(SearchInfo s) {
         if(searchDAO.checkIfSeen(s)) {
             printDuplicate(s);
-        } else if(s.getTTL() <= 0) {
-            printTTLExpired(s);
         } else if(MetadataInfoDAO.getDAO().fileIsPresent(s.getFileName())){
             printHaveFile(s);
             sendResponse(s);
+        } else if(s.getTTL() <= 0) {
+            printTTLExpired(s);
         } else {
             String peerToSend = Randomizer.getRandomPeer(MetadataInfoDAO.getPeerName());
             printFileNotFound(s, peerToSend);
@@ -30,7 +30,7 @@ public class CheckSearch {
     private static void sendResponse(SearchInfo s) {
         Downloader download = new Downloader(s);
         download.start();
-        Sender.send(s.getClientIP(), "OK", Neighbors.RESPONSE_PORT);
+        Sender.send(s.getClientIP(), MetadataInfoDAO.getPeerName(), Neighbors.RESPONSE_PORT);
     }
 
     private static void printFileNotFound(SearchInfo s, String peerToSend) {
