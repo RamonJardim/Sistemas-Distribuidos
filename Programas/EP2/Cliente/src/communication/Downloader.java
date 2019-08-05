@@ -9,7 +9,7 @@ import java.net.Socket;
 public abstract class Downloader {
     public static void download(String fileName, String peer) throws Exception {
         try {
-            int fileSize = 150000000; // 150mb
+            int fileSize = 300000000; // 150mb
             int bytesRead;
             int currentTot = 0;
             Thread.sleep(500);
