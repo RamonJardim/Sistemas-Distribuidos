@@ -32,8 +32,8 @@ public abstract class Downloader {
 
             bos.write(byteArray, 0, currentTot);
         } catch (IOException e) {
-            System.out.println("Erro no downloader: ");
-            e.printStackTrace();
+            System.out.println("Erro no download: Peer indisponível");
+            //e.printStackTrace();
         } finally {
             if(bos != null) {
                 bos.flush();
