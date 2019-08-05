@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public abstract class Neighbors {
     public static final HashMap<String, String> NEIGHBORS = new HashMap<String, String>() {{
-        put("A", "172.31.94.222");
+        put("A", "localhost"/*"172.31.94.222"*/);
         put("B", "172.31.86.123");
         put("C", "172.31.84.211");
         put("D", "172.31.90.23");

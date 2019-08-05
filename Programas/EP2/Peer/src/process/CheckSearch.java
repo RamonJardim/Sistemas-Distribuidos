@@ -4,7 +4,7 @@ import data.MetadataInfoDAO;
 import data.Neighbors;
 import data.SearchDAO;
 import models.SearchInfo;
-import threads.search.Downloader;
+import threads.search.Uploader;
 
 public class CheckSearch {
 
@@ -28,7 +28,7 @@ public class CheckSearch {
     }
 
     private static void sendResponse(SearchInfo s) {
-        Downloader download = new Downloader(s);
+        Uploader download = new Uploader(s);
         download.start();
         Sender.send(s.getClientIP(), MetadataInfoDAO.getPeerName(), Neighbors.RESPONSE_PORT);
     }
