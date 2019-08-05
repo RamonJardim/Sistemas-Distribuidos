@@ -12,11 +12,11 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 
-public class Downloader extends Thread {
+public class Uploader extends Thread {
 
     private SearchInfo searchInfo;
 
-    public Downloader(SearchInfo s){
+    public Uploader(SearchInfo s){
         this.searchInfo = s;
     }
 
@@ -28,7 +28,7 @@ public class Downloader extends Thread {
 
     public void sendFile(){
         try(ServerSocket serverSocket = new ServerSocket(Neighbors.DOWNLOAD_PORT)){
-            serverSocket.setSoTimeout(2000);
+            serverSocket.setSoTimeout(5000);
             Socket socket = serverSocket.accept();
             File transferFile = new File(MetadataInfoDAO.getFileFolderPath() + searchInfo.getFileName());
             byte[] bytearray = new byte[(int) transferFile.length()];
@@ -42,7 +42,8 @@ public class Downloader extends Thread {
         } catch(SocketTimeoutException ste) {
             System.out.println("Console peer " + MetadataInfoDAO.getPeerName() + ": Cliente não conectou para download.");
         } catch(Exception e) {
-          e.printStackTrace();
+            System.out.println("Cliente desconectou inesperadamente");
+            //e.printStackTrace();
         }
     }
 }

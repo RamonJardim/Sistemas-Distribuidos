@@ -11,6 +11,8 @@ public class Peer {
         String peerName = args[1];
         String TTL = args[0];
 
+        System.out.println("Peer " + peerName + " iniciado.");
+
         MetadataInfoDAO.setPeerName(peerName);
         SearchDAO.setTTL(Integer.parseInt(TTL));
 
