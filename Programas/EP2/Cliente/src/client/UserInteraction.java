@@ -20,7 +20,7 @@ public abstract class UserInteraction {
         String searchFile = getFileNameFromUser();
         String responsePeer = "";
         try {
-            String peer = "A";//Randomizer.getRandomPeer();
+            String peer = Randomizer.getRandomPeer();
             System.out.println("Console cliente " + DAO.getClientID() + ": Pesquisando por arquivo \"" + searchFile + "\" no peer " + peer);
             responsePeer = Messenger.beginFlood(searchFile, peer);
             if(!responsePeer.isEmpty()) {
