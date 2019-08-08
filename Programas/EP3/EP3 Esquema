@@ -1,0 +1,23 @@
+
+----------------------------------Esquema---------------------------
+                                            -> Mapper\
+Cliente       ->      Coordenador           -> Mapper -----> Reducer
+                                            -> Mapper/
+--------------------------------------------------------------------
+
+Cliente envia uma requisição com uma lista de links para o coordenador - Lista vem de arquivo
+Coordenador divide a lista em 3, uma para cada mapper.
+
+Os mappers recebem suas respectivas listas e guarda em memória
+obtém todos os links de cada página recebida
+Cria uma estrutura que contem todos os URLs da lista e suas links extraídos associados
+Envia esta estrutura para o reducer
+
+O reducer espera o recebimento de todas as estruturas (todos os mappers)
+Cria o índice invertido e o ordena de forma decrescente
+Envia o índice ordenado para o cliente
+
+o cliente armazena o arquivo recebido
+
+OBS.:
+- O REDUCER NÃO CONCHECE O CLIENTE, PRECISA RECEBER SUAS INFORMAÇÕES
